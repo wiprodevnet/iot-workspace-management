@@ -33,6 +33,7 @@ MySQL
 adapter
 
 ## How to Get Started:
+* clone this repo
 
 ## Result:
 
