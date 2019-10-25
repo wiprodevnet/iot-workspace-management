@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+   <body>
+    <table  border="3">
+      <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Body</th>
+          <th>User Id</th>  
+      </tr>
+      
+      {% for each in data%}
+      <tr>
+          <td>
+              <div id="name">{{ each['id'] }}</div> 
+          </td>
+          <td>
+              <div id="name">{{ each['title'] }}</div> 
+          </td>
+          <td>
+              <div id="name">{{ each['body'] }}</div> 
+          </td>
+          <td>
+              <div id="name">{{ each['userId'] }}</div> 
+          </td>
+      </tr>
+      {% endfor %}
+    </table>
+   </body>
+</html>

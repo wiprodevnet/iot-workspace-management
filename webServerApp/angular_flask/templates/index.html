@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" ng-app="trackWorkSpaceApp">
+   <head>
+    <meta charset="utf-8">
+    <script src="/static/js/angular.js"></script>
+    <script src="/static/js/angularapp.js"></script>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <title>Track Work Space</title>
+  </head>
+   <body>
+   {% raw %}
+   <div class="row" >
+      <div class="col-md-12 heading">
+         <h1 class="text-center"><strong>Smart WorkSpace Application</strong></h1>
+      </div>
+   </div>
+   <div class="masthead" ng-controller ="getWorkSpacedataController">
+    <button class="btn btn-primary"  ng-click="showWorkSpaceDiv()">
+      Track WorkSpace
+    </button>
+    <button class="btn btn-primary"  ng-click="showSensorRegPage()">
+      Register Sensor
+    </button>
+
+    <div ng-if="showWorkSpace">
+        <div class="text-center">
+            <h1>Managing Your WorkSpace</h1>
+        </div>
+         <div  ng-controller ="getWorkSpacedataController">
+                        <div class="workSpaceDetails">
+                            <table class="table table-bordered" ng-if="workSpaceData.length > 0">
+                             <tr>
+                                <th class="text-center"> Cubical Number </th>
+                                <th class="text-center"> Status of Employee</th>
+                             </tr>
+                              <tr class="justify-content-center" ng-repeat="each in workSpaceData"> 
+                                    <td class="text-center">{{each[2]}}</td>                         
+                                    <td ng-if="each[1] == 'ON'" >
+                                         <div class="on rounded-circle "></div>
+                                    </td>
+                                    <td ng-if="each[1] == 'OFF'">
+                                         <div class="off rounded-circle"></div>
+                                    </td>                        
+                              </tr>
+                              </table>
+
+                        </div>
+        </div>
+    </div>
+      
+       <div class="addsensor" ng-if="showSensorReg">
+          <div class="text-center">
+                <h3>Register Sensor Details</h3>
+            </div>
+         <div class="container" ng-controller ="getWorkSpacedataController">
+            
+            <div class="row">
+              <form role="form" name="addSensorDetails" ng-submit="saveSensorDetails()">
+                        <div class="form-group row">
+                           <label class="col-sm-4 col-form-label">Building Name</label>
+                        <div class="col-sm-06">
+                           <select class="form-control"
+                                   ng-options="building[1] for building in buildingData"
+                                   ng-model="selectedBuilding"
+                                   ng-change="getFloordata(selectedBuilding)">
+                              <option value="">--Select--</option>
+                           </select>
+
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-sm-4 col-form-label">Floor Number</label>
+                           <div class="col-sm-06">
+                              <select class="form-control"
+                                   ng-options="floor[1] for floor in floorData"
+                                   ng-model="selectedFloor"
+                                   ng-change="getCubicleData(selectedFloor)">
+                              <option value="">--Select--</option>
+                           </select>
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-sm-4 col-form-label">Cubicle Number</label>
+                           <div class="col-sm-06">
+                              <select class="form-control"
+                                   ng-options="cubicle[1] for cubicle in cubicleData"
+                                   ng-model="selectedCubicleNo">
+                              <option value="">--Select--</option>
+                           </select>
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label class="col-sm-4 col-form-label" ng-required='Ture'>Sensor Serial Number</label>
+                           <div class="col-sm-06">
+                              <input type="text"
+                                     name="sensor"
+                                     class="form-control"
+                                     placeholder="Enter Serial Number"
+                                     ng-model="sensorSerialNo" required>
+                           </div>
+                        </div>
+
+                        <div class="form-group row">
+                           <div class="col-sm-10 offset-sm-2">
+                              <button type="submit" class="btn btn-primary">
+                                Register Sensor
+                              </button>
+                           </div>
+                        </div>
+              </form>
+              <div class="">
+                <span ng-bind="responseMsg"></span>
+              </div>
+      </div>
+     </div>
+   </div>
+    
+    </div>
+{% endraw %}
+</body>
+</html>

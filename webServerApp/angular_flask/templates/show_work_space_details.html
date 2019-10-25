@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+   <body>
+      <table border = 2>
+      		<tr>
+               <th> Cubical Number </th>
+               <th> Status of Positional Censor</th>
+            </tr>
+         {% for each_cubical in data %}
+            <tr>
+               <td> {{ each_cubical.get('cubical_no') }} </td>
+               	{% if each_cubical.get('positional_censor_status') == 'ON' %}
+        			 <td style="color:white; background-color:green;"> {{ each_cubical.get('positional_censor_status') }} </td>
+    			{% else %}
+        			 <td style="color:white; background-color:red;"> {{ each_cubical.get('positional_censor_status') }} </td>
+    			{% endif %}
+              
+            </tr>
+         {% endfor %}
+      </table>
+       <button type="button" class="btn small help-button">
+       	<a href = "{{ url_for('index') }}">Back</a>
+       </button>
+   </body>
+</html>
