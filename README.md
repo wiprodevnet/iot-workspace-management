@@ -83,7 +83,7 @@ Once you have verified the prerequisites to complete this lab you will:
    6. Monitor and review the IOx Application
    7. Test the output of the IOx Application
 
-## Refer below link for more details-
+## Refer below link for more details
 * https://developer.cisco.com/learning/modules/iox-basic/iot-iox-app-docker/step/1
 
 ## Steps to run sensorSimulation
@@ -107,7 +107,14 @@ Once you have verified the prerequisites to complete this lab you will:
         
    ### Run below command to start Flask server
          $python3 runserver.py
-## Result:
+
+## Smart WorkSpace UI:
+ ### Smart WorkSpace Dashboard
+ ![trackWorkSpace](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/trackWorkSpace.png)
+ 
+ ### Smart WorkSpace Sensor Registoration Page
+ ![registerSensor](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/registerSensor.png)
+
 
 
 
