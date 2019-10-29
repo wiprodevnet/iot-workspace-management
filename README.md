@@ -12,6 +12,7 @@ This is an end to end sample project for managing the workspace using sensors de
 * IOX Application will receive the user presence json data from the sensor
 * Fog Application will run on the IOX gateway within a container of its own	
 * IOT Fog Application will receive the user presence json data from the sensor and apply business logic to improve / optimize the data transfer
+![architecture](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/architecture.png)
 
 ### Server Application	
 * Sensors will register with Server Application 
@@ -107,6 +108,7 @@ Once you have verified the prerequisites to complete this lab you will:
    ### Run below command to start Flask server
          $python3 runserver.py
 ## Result:
+
 
 
 
