@@ -1,0 +1,54 @@
+-- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
+--
+-- Host: localhost    Database: TrackWorkSpace
+-- ------------------------------------------------------
+-- Server version	5.7.27-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cubicle`
+--
+
+DROP TABLE IF EXISTS `cubicle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cubicle` (
+  `cubicle_idn` int(11) NOT NULL AUTO_INCREMENT,
+  `cubicle_number` varchar(45) NOT NULL,
+  `floor_idn` int(11) NOT NULL,
+  PRIMARY KEY (`cubicle_idn`),
+  KEY `fk_cubicle_1_idx` (`floor_idn`),
+  CONSTRAINT `fk_cubicle_1` FOREIGN KEY (`floor_idn`) REFERENCES `floor` (`floor_idn`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cubicle`
+--
+
+LOCK TABLES `cubicle` WRITE;
+/*!40000 ALTER TABLE `cubicle` DISABLE KEYS */;
+INSERT INTO `cubicle` VALUES (29,'S1-FIRST-01',1),(30,'S1-FIRST-02',1),(31,'S1-FIRST-03',1),(32,'S1-FIRST-04',1),(33,'S1-SECOND-01',2),(34,'S1-SECOND-02',2),(35,'S1-SECOND-03',2),(36,'S1-SECOND-04',2),(37,'S1-SECOND-05',2),(38,'S1-SECOND-06',2),(39,'S1-THIRD-01',3),(40,'S1-THIRD-02',3),(41,'S1-THIRD-03',3),(42,'S1-THIRD-04',3);
+/*!40000 ALTER TABLE `cubicle` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-10-25 15:54:35
