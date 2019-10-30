@@ -87,21 +87,21 @@ Once you have verified the prerequisites to complete this lab you will:
 * https://developer.cisco.com/learning/modules/iox-basic/iot-iox-app-docker/step/1
 
 ## Steps to run sensorSimulation
-    1. Open sencors_data.py and configure the IOX sandbox external IP and port. 
-    2. Run below command to send sensor datat to IOXApp
-        $python3 client_v1.py
+1. Open sencors_data.py and configure the IOX sandbox external IP and port. 
+2. Run below command to send sensor datat to IOXApp
+	> python3 client_v1.py
 ## Steps to run webServerApp
    ### Prerequisites
-        1. Install Python3
-            $sudo apt-get install python3.6
-        2. Install all the necessary packages (best done inside of a virtual environment)
-           $pip install -r requirements.txt 
-        3. Install MySql
-            $sudo apt-get install mysql-server
-        4. Import Database in MySql and Configure Database details in main.py
-        
-        Refer below link for more details about MYSql installtion
-          https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
+1. Install Python3
+   > Sudo apt-get install python3.6
+2. Install all the necessary packages (best done inside of a virtual environment)
+   > pip install -r requirements.txt 
+3. Install MySql
+   > sudo apt-get install mysql-server
+4. Import Database in MySql and Configure Database details in main.py
+
+Refer below link for more details about MYSql installtion
+  https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
         
    ### Run below command to start Flask server
          $python3 runserver.py
