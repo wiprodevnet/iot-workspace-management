@@ -60,16 +60,22 @@ def save_sensor_data():
     """
     Save sensor data into database
     """
+    msg = ''
     sensor_data = request.get_json().get('params')
     sensor_serial_no = sensor_data['sensor_serial_no']
     cubicle_idn = sensor_data['cubicle_idn']
     sensor_type = 'positional'
-    sql_select_Query = """INSERT INTO sensor_details (serial_number, sensor_type, cubicle_idn)
-                          VALUES (%s, %s, %s)
-                       """
-    cursor.execute(sql_select_Query, (sensor_serial_no, sensor_type, cubicle_idn))
-    conn.commit()
-    return json.dumps({'message': 'Data added successfully'})
+    registered_sensor_list = get_registered_sensor_data()
+    if sensor_serial_no not in registered_sensor_list:
+        sql_select_Query = """INSERT INTO sensor_details (serial_number, sensor_type, cubicle_idn)
+                              VALUES (%s, %s, %s)
+                           """
+        cursor.execute(sql_select_Query, (sensor_serial_no, sensor_type, cubicle_idn))
+        conn.commit()
+        msg = 'Sensor data added successfully'
+    else:
+        msg = 'Sensor Serial Number already registered'
+    return json.dumps({'message': msg})
 
 @app.route('/work_space', methods=["GET"])
 def render_work_space_data():

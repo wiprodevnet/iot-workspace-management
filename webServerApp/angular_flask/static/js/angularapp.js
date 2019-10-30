@@ -1,8 +1,8 @@
 //
 var trackWorkSpaceApp = angular.module('trackWorkSpaceApp',[]);
 
-trackWorkSpaceApp.controller('getWorkSpacedataController',['$scope', '$http', '$interval', 'dataService',
-  function($scope, $http, $interval, dataService)
+trackWorkSpaceApp.controller('getWorkSpacedataController',['$scope', '$http', '$interval', '$window', 'dataService',
+  function($scope, $http, $interval, $window, dataService)
     { 
         $scope.showWorkSpace = false;
         $scope.showSensorReg = false;
@@ -64,7 +64,8 @@ trackWorkSpaceApp.controller('getWorkSpacedataController',['$scope', '$http', '$
                               };
             dataService.saveSensordata(sensorDataSet).then(function(dataResponse) {
                 $scope.addSensorDetails = {};
-                $scope.responseMsg = dataResponse.data;
+                $scope.responseMsg = dataResponse.data.message;
+                $window.alert($scope.responseMsg);
             });
 
         }
