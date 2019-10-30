@@ -46,10 +46,11 @@ You will need to have completed the learning the following labs:
 3. Intro to Docker - https://developer.cisco.com/learning/tracks/iot/IoT-IOx-Apps/docker-101/step/1
 
 ### Docker technologies
-	You should have a basic understanding on how to build and run a docker application.
+You should have a basic understanding on how to build and run a docker application.
 
 ### Docker Platform
-	To create a Docker image and push it to the Docker Hub, you will need the correct Docker tools for your platform which are available at https://www.docker.com/products/overview. Download and install the correct version for your operating system.
+To create a Docker image and push it to the Docker Hub, you will need the correct Docker tools for your platform which are available at https://www.docker.com/products/overview.
+Download and install the correct version for your operating system.
 
 ### IOx Dev Environment As A Service 
 This lab has instructions for using a docker container that sets up a web service you can access from your browser. The web service is a browser based version of Visual Studio Code, developed by Coder Com (https://coder.com) and utilizes docker to run the service. Since it is Visual Studio Code, it it provides a text/code editor and comes pre-built with ioxclient and everything you need to build IOx applications. You will need the Docker Platform on your desktop or developer machine to run this environment.
@@ -93,7 +94,7 @@ Once you have verified the prerequisites to complete this lab you will:
    ### Prerequisites
         1. Install Python3
             $sudo apt-get install python3.6
-        2. install all the necessary packages (best done inside of a virtual environment)
+        2. Install all the necessary packages (best done inside of a virtual environment)
            $pip install -r requirements.txt 
         3. Install MySql
             $sudo apt-get install mysql-server
