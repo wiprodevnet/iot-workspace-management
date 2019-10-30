@@ -60,12 +60,11 @@ To access the DevNet Sandbox, you will need to use the Cisco AnyConnect Client f
 	Note: If you are working on a DevNet Lab workstation, this software is already installed.
 
 ### ioxclient
-	You will need the ioxclient to package and deploy the IOx Application. If you need to download it, you can find it at this link.
-
+You will need the ioxclient to package and deploy the IOx Application. If you need to download it, you can find it at this link.
 	Note: If you are working on a DevNet Lab workstation or you are using the "IOx Dev Environment As A Service" container, this software is already installed.
 
 ### git
-	One way to get the application template code is to use git. We have the option to download the code, so this step is optional. If you are working on a DevNet Lab workstation, the git software is already installed. If you need to install it, you can find it at this link.
+One way to get the application template code is to use git. We have the option to download the code, so this step is optional. If you are working on a DevNet Lab workstation, the git software is already installed. If you need to install it, you can find it at this link.
 
 	Note: You can verify the installation of git by opening a command prompt and running:
 
@@ -94,13 +93,11 @@ Once you have verified the prerequisites to complete this lab you will:
    ### Prerequisites
         1. Install Python3
             $sudo apt-get install python3.6
-        2. Install Flask
-            $pip install flask 
+        2. install all the necessary packages (best done inside of a virtual environment)
+           $pip install -r requirements.txt 
         3. Install MySql
             $sudo apt-get install mysql-server
-        4. To connect flask with mysql
-            $pip3 install flask-mysql
-        5. Import Database in MySql and Configure Database details in main.py
+        4. Import Database in MySql and Configure Database details in main.py
         
         Refer below link for more details about MYSql installtion
           https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
