@@ -33,6 +33,74 @@ This is an end to end sample project for managing the workspace using sensors de
 6. MySQL
 7. flask-mysql
 
+## Installation and Configuration
+### Steps to Set-up profile for ioxclient
+1. reset profile first
+   > ./ioxclient profiles reset
+2. create profile
+   > ./ioxclient  profiles create
+   
+		Creating one time configuration..
+		Your / your organization's name : cisco
+		Your / your organization's URL : cisco.com
+		Your IOx platform's IP address[127.0.0.1] : 10.10.20.51
+		Your IOx platform's port number[8443] : 8443
+		Authorized user name[root] : cisco
+		Password for cisco : 
+		Local repository path on IOx platform[/software/downloads]: 
+		URL Scheme (http/https) [https]: 
+		API Prefix[/iox/api/v2/hosting/]: 
+		Your IOx platform's SSH Port[2222]: 22
+		Your RSA key, for signing packages, in PEM format[]: 
+		Your x.509 certificate in PEM format[]: 
+		Activating Profile  default
+		Saving current configuration
+		Active Profile :  default
+		Enter a name for this profile : sandbox
+		Your IOx platform's IP address[127.0.0.1] : 10.10.20.51
+		Your IOx platform's port number[8443] : 8443
+		Authorized user name[root] : cisco
+		Password for cisco : 
+		Local repository path on IOx platform[/software/downloads]: 
+		URL Scheme (http/https) [https]: 
+		API Prefix[/iox/api/v2/hosting/]: 
+		Your IOx platform's SSH Port[2222]: 22
+		Your RSA key, for signing packages, in PEM format[]: 
+		Your x.509 certificate in PEM format[]: 
+		Activating Profile  sandbox
+		Saving current configuration
+
+3.  Activate the profile
+ > ./ioxclient  profiles activate sandbox
+
+### Steps to create images 
+
+  > git clone https://github.com/wiprodevnet/iot-workspace-management.git  
+  > cd iot-workspace-management/IOXApp  
+  > sudo docker build -t iot_sensor_data_app . 
+
+
+### Steps to delopy docker images into IOx Fog Director
+1. Reserve the IOx-CAF x2 + Fog Director under IOT section
+2. After that connect the sandbox with anyconnect by using credential received in a mail.
+3. Go to ioxclient folder
+4. Package the IOx Application with the ioxclient tool
+5. To create package
+		> sudo ./ioxclient docker package iot_sensor_data_app .
+6. To Deploy the IOX Application using ioxclient
+		>./ioxclient application install IOT_WORKSPACE_MANAGEMENT_APP package.tar
+7.  After that login into sandbox activate and start the app.
+
+Step to run client to send sensor data to app.
+ > cd sensorSimulation/
+ > python3 client_v1.py
+
+Steps to run webserver app to show dashboard
+1. cd webServerApp/
+2. python3 runserver.py
+3. open Browser and paste this url http://0.0.0.0:9001/
+
+
 ## Installation and Configuration:
 * Clone this repo first and follow the steps to run each Component.
 
