@@ -37,6 +37,7 @@ This is an end to end sample project for managing the workspace using sensors de
 ### Steps to Set-up profile for ioxclient
 1. reset profile first
    > ./ioxclient profiles reset
+   ![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/profilereset.png)
 2. create profile
    > ./ioxclient  profiles create
    
@@ -69,16 +70,16 @@ This is an end to end sample project for managing the workspace using sensors de
 		Your x.509 certificate in PEM format[]: 
 		Activating Profile  sandbox
 		Saving current configuration
-
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/profilescreate.png)
 3.  Activate the profile
  > ./ioxclient  profiles activate sandbox
-
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/profileslist.png)
 ### Steps to create images 
 
   > git clone https://github.com/wiprodevnet/iot-workspace-management.git  
   > cd iot-workspace-management/IOXApp  
   > sudo docker build -t iot_sensor_data_app . 
-
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/dockerimage.png)
 
 ### Steps to delopy docker images into IOx Fog Director
 1. Reserve the IOx-CAF x2 + Fog Director under IOT section
@@ -90,21 +91,41 @@ This is an end to end sample project for managing the workspace using sensors de
 6. To Deploy the IOX Application using ioxclient
 		>./ioxclient application install IOT_WORKSPACE_MANAGEMENT_APP package.tar
 7.  After that login into sandbox activate and start the app.
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/DeployImage.png)
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/Checkapplication.png)
 
 Step to run client to send sensor data to app.
  > cd sensorSimulation/
  > python3 client_v1.py
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/ClientRunning.png)
 
-Steps to run webserver app to show dashboard
+
+## Steps to Install DB 
+   ### Prerequisites
+1. Install Python3
+   > Sudo apt-get install python3.6
+2. Install all the necessary packages (best done inside of a virtual environment)
+   > pip install -r requirements.txt 
+3. Install MySql
+   > sudo apt-get install mysql-server
+4. Import Database in MySql and Configure Database details in main.py
+
+Refer below link for more details about MYSql installtion
+  https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
+
+## Steps to run webserver app to show dashboard
 1. cd webServerApp/
 2. python3 runserver.py
 3. open Browser and paste this url http://0.0.0.0:9001/
+![](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/ServerRunning.png)
+     
+## Smart WorkSpace UI:
+ ### Smart WorkSpace Dashboard
+ ![trackWorkSpace](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/trackWorkSpace.png)
+ 
+ ### Smart WorkSpace Sensor Registoration Page
+ ![registerSensor](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/registerSensor.png)
 
-
-## Installation and Configuration:
-* Clone this repo first and follow the steps to run each Component.
-
-## Steps to Deploy IOXApp
 
 ### Prerequisites
 Previous IOx labs needed to complete this lab
@@ -139,49 +160,5 @@ One way to get the application template code is to use git. We have the option t
 
 ### git --version
 	Additional Note: If you are working on a DevNet Lab workstation or you are using the "IOx Dev Environment As A Service" container, this software is already installed.
-
-Once you have verified the prerequisites to complete this lab you will:
-
-### Reserve an IOx Sandbox instance:- 
-   1. Setup a Local Container for the IOx Developer Environment
-   2. Create a small IOx Application to run on the Sandbox IOx device
-   3. Package the IOx Application with the ioxclient Docker tools
-   4. Connect to the DevNet Sandbox
-   5. Deploy the IOx Application
-   6. Monitor and review the IOx Application
-   7. Test the output of the IOx Application
-
-## Refer below link for more details
-* https://developer.cisco.com/learning/modules/iox-basic/iot-iox-app-docker/step/1
-
-## Steps to run sensorSimulation
-1. Open sencors_data.py and configure the IOX sandbox external IP and port. 
-2. Run below command to send sensor datat to IOXApp
-	> python3 client_v1.py
-## Steps to run webServerApp
-   ### Prerequisites
-1. Install Python3
-   > Sudo apt-get install python3.6
-2. Install all the necessary packages (best done inside of a virtual environment)
-   > pip install -r requirements.txt 
-3. Install MySql
-   > sudo apt-get install mysql-server
-4. Import Database in MySql and Configure Database details in main.py
-
-Refer below link for more details about MYSql installtion
-  https://vitux.com/how-to-install-and-configure-mysql-in-ubuntu-18-04-lts/
-        
-   ### Run below command to start Flask server
-         $python3 runserver.py
-
-## Smart WorkSpace UI:
- ### Smart WorkSpace Dashboard
- ![trackWorkSpace](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/trackWorkSpace.png)
- 
- ### Smart WorkSpace Sensor Registoration Page
- ![registerSensor](https://github.com/wiprodevnet/iot-workspace-management/blob/master/images/registerSensor.png)
-
-
-
 
 
